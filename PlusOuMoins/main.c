@@ -16,17 +16,21 @@ int main(int argc, const char * argv[]) {
     srand(time(NULL));
     int NbTrouve = rand() % MAX;
     int proposition;
+    int NbCoup = 0;
     printf("Entrez un nombre pour voir si il est correct tant que vous avez pas trouve le bon \n");
     do{
         scanf("%d", &proposition);
         if(proposition < NbTrouve){
             printf("Le nombre %d est moins \n", proposition);
+            NbCoup++;
         }
         else if(proposition > NbTrouve){
             printf("Le nombre %d est plus \n", proposition);
+            NbCoup++;
         }
         else if(proposition == NbTrouve){
-            printf("Bravo vous avez trouve !!! \nLe nombre etait bien %d \n", NbTrouve);
+            NbCoup++;
+            printf("Bravo vous avez trouve en %d coups !!! \nLe nombre etait bien %d \n", NbCoup, NbTrouve);
         }
     }while(proposition != NbTrouve);
     return 0;
